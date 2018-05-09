@@ -1,5 +1,142 @@
 {%extends 'all/base.html'%}
+{% load static %}
 
  {% block content %}
- <h1>just checking!</h1>
+ {{block.super}}
+ <div class="jumbotron" style="height:60vh;margin-bottom:-5vh;">
+   <h1>testing</h1>
+ </div>
+
+ <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+   <h1 style = "padding-top:3vh;">Movies</h2>
+<div class="carousel-inner">
+    <div class="item active">
+    {% for show_item in show %}
+        <div class="col-sm-3">
+            <div class="product-image-wrapper1">
+                <div class="single-products">
+                    <div class="carouselinfo text-center">
+
+                    <a href="{% url 'media_details'%}"><img src="{{ show_item.image.url }}" style="height:55vh;width:120%"></a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+       {% if forloop.counter|divisibleby:4 and not forloop.last %}
+       </div>
+       <div class="item">
+       {% endif %}
+    {% endfor %}
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+<br>
+ <h1 style = "padding-top:3vh;">TV Shows</h2>
+<div id="recommended-item-carousel2" class="carousel slide" data-ride="carousel" style="padding-bottom:10vh;">
+<div class="carousel-inner">
+   <div class="item active">
+   {% for show_item in show %}
+       <div class="col-sm-3">
+           <div class="product-image-wrapper1">
+               <div class="single-products">
+                   <div class="carouselinfo text-center">
+
+                   <a href="{% url 'media_details'%}"><img src="{{ show_item.image.url }}" style="height:55vh;width:120%"></a>
+
+
+                   </div>
+               </div>
+           </div>
+       </div>
+      {% if forloop.counter|divisibleby:4 and not forloop.last %}
+      </div>
+      <div class="item">
+      {% endif %}
+   {% endfor %}
+   </div>
+   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+   </a>
+   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+   </a>
+</div>
+
+<br>
+<a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+ <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+ <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+
+<div id="recommended-item-carousel3" class="carousel slide" data-ride="carousel" style="padding-bottom:10vh;">
+
+<div class="carousel-inner">
+  <h1 style = "padding-top:3vh;">Trending</h2>
+   <div class="item active">
+   {% for show_item in show %}
+       <div class="col-sm-3">
+           <div class="product-image-wrapper1">
+               <div class="single-products">
+                   <div class="carouselinfo text-center">
+
+                   <a href="{% url 'media_details'%}"><img src="{{ show_item.image.url }}" style="height:55vh;width:120%"></a>
+
+
+                   </div>
+               </div>
+           </div>
+       </div>
+      {% if forloop.counter|divisibleby:4 and not forloop.last %}
+      </div>
+      <div class="item">
+      {% endif %}
+   {% endfor %}
+   </div>
+   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+   </a>
+   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+   </a>
+</div>
+
+
+<a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+ <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+ <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+
+{% for popoular_movie in popular_movies%}
+{{popular_movie.title}}
+{%endfor%}
+
+
 {%endblock%}
